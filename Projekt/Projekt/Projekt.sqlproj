@@ -60,6 +60,8 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="HR\" />
+    <Folder Include="HR\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Price.sql" />
@@ -71,5 +73,11 @@
     <Build Include="dbo\Tables\Employee.sql" />
     <Build Include="Security\SRVC.sql" />
     <Build Include="Security\HR.sql" />
+    <Build Include="HR\Tables\Wage.sql" />
+    <Build Include="HR\Tables\Team.sql" />
+    <Build Include="HR\Tables\Payment.sql" />
+    <Build Include="HR\Tables\Job.sql" />
+    <Build Include="HR\Tables\EmployeeTeam.sql" />
+    <Build Include="HR\Tables\EmployeeJob.sql" />
   </ItemGroup>
 </Project>
