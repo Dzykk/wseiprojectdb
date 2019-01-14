@@ -85,5 +85,6 @@
     <Build Include="SRVC\Tables\OrderStatus.sql" />
     <Build Include="SRVC\Tables\OrderHistory.sql" />
     <Build Include="SRVC\Tables\Order.sql" />
+    <Build Include="Security\rapOp.sql" />
   </ItemGroup>
 </Project>
