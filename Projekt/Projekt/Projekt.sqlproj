@@ -89,5 +89,8 @@
     <Build Include="SRVC\Tables\Order.sql" />
     <Build Include="Security\rapOp.sql" />
     <Build Include="rapOp\Views\View1.sql" />
+    <Build Include="rapOp\Views\View4.sql" />
+    <Build Include="rapOp\Views\View3.sql" />
+    <Build Include="rapOp\Views\View2.sql" />
   </ItemGroup>
 </Project>
