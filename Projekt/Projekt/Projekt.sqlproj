@@ -62,6 +62,8 @@
     <Folder Include="Security\" />
     <Folder Include="HR\" />
     <Folder Include="HR\Tables\" />
+    <Folder Include="SRVC\" />
+    <Folder Include="SRVC\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Price.sql" />
@@ -79,5 +81,9 @@
     <Build Include="HR\Tables\Job.sql" />
     <Build Include="HR\Tables\EmployeeTeam.sql" />
     <Build Include="HR\Tables\EmployeeJob.sql" />
+    <Build Include="SRVC\Tables\ServiceType.sql" />
+    <Build Include="SRVC\Tables\OrderStatus.sql" />
+    <Build Include="SRVC\Tables\OrderHistory.sql" />
+    <Build Include="SRVC\Tables\Order.sql" />
   </ItemGroup>
 </Project>
