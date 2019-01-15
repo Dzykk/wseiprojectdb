@@ -14,10 +14,10 @@ os.[Name] AS osn,
 ROW_NUMBER() OVER (PARTITION BY od.OrderID ORDER BY oh.DateOfUpdate DESC) AS rownum,
 oh.DateOfUpdate
 FROM
-SRVC.[Order] AS od INNER JOIN 
-SRVC.ServiceType AS st ON od.ServiceTypeID = st.ServiceTypeID  JOIN
-(SRVC.OrderHistory AS oh INNER JOIN
-SRVC.OrderStatus AS os ON oh.[Status] = os.Name) ON od.OrderID = oh.OrderID AND os.[Name] <> 'Closed'
-) AS oht
+SRVC.[Order] AS od (READUNCOMMITTED) INNER JOIN 
+SRVC.ServiceType AS st (READUNCOMMITTED) ON od.ServiceTypeID = st.ServiceTypeID  JOIN
+(SRVC.OrderHistory AS oh (READUNCOMMITTED) INNER JOIN
+SRVC.OrderStatus AS os (READUNCOMMITTED) ON oh.[Status] = os.Name) ON od.OrderID = oh.OrderID AND os.[Name] <> 'Closed'
+) AS oht 
 WHERE
 DATEDIFF(day, oht.DateOfUpdate, GETDATE()) >= 7 AND rownum = 1;

@@ -6,9 +6,9 @@ jo.[Name] AS JobName,
 AVG(wa.Amount) AS AverageWage,
 MAX(wa.Amount) - MIN(wa.Amount) AS WageDifference
 FROM
-HR.Job AS jo INNER JOIN
-HR.EmployeeJob AS ej ON jo.JobID = ej.JobID INNER JOIN
-dbo.Employee AS em ON ej.EmployeeID = em.EmployeeID INNER JOIN
-HR.Wage AS wa ON em.EmployeeID = wa.EmployeeID AND ej.DateFrom = wa.DateFrom AND ej.DateTo = wa.DateTo
+HR.Job AS jo (READUNCOMMITTED) INNER JOIN
+HR.EmployeeJob AS ej (READUNCOMMITTED) ON jo.JobID = ej.JobID INNER JOIN
+dbo.Employee AS em (READUNCOMMITTED) ON ej.EmployeeID = em.EmployeeID INNER JOIN
+HR.Wage AS wa (READUNCOMMITTED) ON em.EmployeeID = wa.EmployeeID AND ej.DateFrom = wa.DateFrom AND ej.DateTo = wa.DateTo
 GROUP BY
 jo.[Name]
