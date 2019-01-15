@@ -66,6 +66,7 @@
     <Folder Include="SRVC\Tables\" />
     <Folder Include="rapOp\" />
     <Folder Include="rapOp\Views\" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Price.sql" />
@@ -98,5 +99,8 @@
     <Build Include="rapOp\Views\SRVCView3.sql" />
     <Build Include="rapOp\Views\SRVCView2.sql" />
     <Build Include="rapOp\Views\SRVCView1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PostDeployment-DataInsert.sql" />
   </ItemGroup>
 </Project>
