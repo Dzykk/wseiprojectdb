@@ -92,5 +92,8 @@
     <Build Include="rapOp\Views\View4.sql" />
     <Build Include="rapOp\Views\View3.sql" />
     <Build Include="rapOp\Views\View2.sql" />
+    <Build Include="rapOp\Views\HRView3.sql" />
+    <Build Include="rapOp\Views\HRView2.sql" />
+    <Build Include="rapOp\Views\HRView1.sql" />
   </ItemGroup>
 </Project>
