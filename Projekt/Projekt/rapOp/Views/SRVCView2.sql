@@ -9,7 +9,7 @@ SUM(st.Price) AS MoneySum
 FROM
 SRVC.ServiceType AS st (READUNCOMMITTED) LEFT JOIN
 (SRVC.[Order] AS od (READUNCOMMITTED) INNER JOIN
-SRVC.OrderHistory AS oh (READUNCOMMITTED) ON od.OrderID = oh.OrderID AND oh.[Status] = 'Closed')
+SRVC.OrderHistory AS oh (READUNCOMMITTED) ON od.OrderID = oh.OrderID AND oh.[StatusID] = 4)
 ON st.ServiceTypeID = od.ServiceTypeID
 WHERE
 YEAR(oh.DateOfUpdate) = YEAR(GETDATE())
