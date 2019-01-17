@@ -104,6 +104,7 @@
     <Build Include="dbo\Stored Procedures\CarOrderInsert.sql" />
     <Build Include="SRVC\Stored Procedures\ServiceOrderInsert.sql" />
     <Build Include="SRVC\Stored Procedures\OrderHistoryInsert.sql" />
+    <Build Include="dbo\Stored Procedures\OrderedCarInsert.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment-DataInsert.sql" />

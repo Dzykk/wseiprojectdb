@@ -9,11 +9,6 @@ WHILE @ordernumber <= @NumberOfOrders
 BEGIN --begin while
 
 BEGIN
-DECLARE @orderid int
-SELECT @orderid = IDENT_CURRENT('dbo.order')
-END
-
-BEGIN
 DECLARE @clientid int
 SELECT @clientid = ClientID 
 FROM
@@ -52,36 +47,12 @@ DECLARE @deliverydate DATETIME
 SET @deliverydate = @orderdate + ((7 * 2 * RAND()))
 END
 
-BEGIN
-DECLARE @modelid int
-SELECT @modelid = ModelID FROM
-(SELECT 
-ROW_NUMBER() OVER (Order BY ModelID) AS rownum,
-ModelID
-FROM
-dbo.Model
-) AS tb
-WHERE tb.rownum = 1 + (SELECT CAST(RAND() * COUNT(*) AS int) FROM Model )
-END
-
-BEGIN
-DECLARE @price smallmoney
-SELECT @price = Price
-FROM
-(SELECT
-pr.Price - (ROUND(((500 - 100 - 1) * RAND() + 100), 0)) AS Price
-FROM
-dbo.Model AS mo INNER JOIN
-dbo.Price AS pr ON mo.ModelID = pr.ModelID
-WHERE mo.ModelID = @modelid
-) AS tb
-END
 
 BEGIN
 DECLARE @completed bit
 SELECT @completed= 
 CASE
-WHEN  DAY(GETDATE() - @orderdate) > 7 THEN 1
+WHEN  GETDATE() - @orderdate > 7 THEN 1
 ELSE 0
 END
 END
@@ -98,19 +69,13 @@ END
 BEGIN
 INSERT INTO dbo.[Order] (ClientID, EmployeeID, FullPrice, OrderDate, DeliveryDate, Completed, Delivered)
 VALUES
-(@clientid, @employeeID, @price, @orderdate, @deliverydate, @completed, @delivered )
-END
-
-
-BEGIN
-INSERT INTO dbo.[OrderedCar] (ModelID, OrderID, FinalPrice)
-VALUES
-(@modelid, @orderid, @price)
+(@clientid, @employeeID, 0, @orderdate, @deliverydate, @completed, @delivered )
 END
 
 SET @ordernumber += 1
 IF @ordernumber > @NumberOfOrders
 BREAK
-END --end while
+ELSE CONTINUE
 
+END --end while
 END; --end proc

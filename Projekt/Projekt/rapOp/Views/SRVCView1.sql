@@ -17,7 +17,7 @@ FROM
 SRVC.[Order] AS od (READUNCOMMITTED) INNER JOIN 
 SRVC.ServiceType AS st (READUNCOMMITTED) ON od.ServiceTypeID = st.ServiceTypeID  JOIN
 (SRVC.OrderHistory AS oh (READUNCOMMITTED) INNER JOIN
-SRVC.OrderStatus AS os (READUNCOMMITTED) ON oh.[StatusID] = os.OrderStatusID) ON od.OrderID = oh.OrderID AND os.[Name] <> 'Closed'
+SRVC.OrderStatus AS os (READUNCOMMITTED) ON oh.[StatusID] = os.Name) ON od.OrderID = oh.OrderID AND os.[Name] <> 'Closed'
 ) AS oht 
 WHERE
 DATEDIFF(day, oht.DateOfUpdate, GETDATE()) >= 7 AND rownum = 1;
