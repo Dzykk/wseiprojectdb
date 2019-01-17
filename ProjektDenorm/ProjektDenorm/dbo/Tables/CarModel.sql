@@ -6,10 +6,11 @@
     [ModelName]           VARCHAR (30)  NOT NULL,
     [ModelYearStart]      SMALLDATETIME NULL,
     [ModelYearEnd]        SMALLDATETIME NULL,
-    [PriceID]             INT           NOT NULL,
     [Price]               SMALLMONEY    NOT NULL,
     [PriceDateFrom]       SMALLDATETIME NOT NULL,
     [PriceDateTo]         SMALLDATETIME NOT NULL,
     PRIMARY KEY CLUSTERED ([CarModelID] ASC)
 );
+
+
 

@@ -69,5 +69,6 @@
     <Build Include="dbo\Tables\CarModel.sql" />
     <Build Include="dbo\Stored Procedures\DenormEmployee.sql" />
     <Build Include="dbo\Stored Procedures\DenormServiceOrder.sql" />
+    <Build Include="dbo\Stored Procedures\DenormCarModel.sql" />
   </ItemGroup>
 </Project>
