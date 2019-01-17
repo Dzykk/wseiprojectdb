@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE DenormEmployee
+﻿CREATE   PROCEDURE DenormEmployee
 AS
 BEGIN --begin proc
 
@@ -39,7 +39,7 @@ tar.JobDateFrom = src.JobDateFrom,
 tar.JobDateTo = src.JobDateTo,
 tar.Team = src.Team,
 tar.WageAmount = src.WageAmount
-WHEN NOT MATCHED THEN
+WHEN NOT MATCHED BY TARGET THEN
 INSERT (EmployeeID, [Name], Surname, Gender, Email, PhoneNumber, PESEL, HireDate, Job, JobDateFrom, JobDateTo, Team, WageAmount)
 VALUES
 (src.EmployeeID, src.[Name], src.Surname, src.Gender, src.Email, src.PhoneNumber, src.PESEL, src.HireDate, src.Job, src.JobDateFrom, src.JobDateTo, src.Team, src.WageAmount);
