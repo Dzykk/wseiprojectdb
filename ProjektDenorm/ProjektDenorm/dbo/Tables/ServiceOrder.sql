@@ -4,7 +4,14 @@
     [OrderStatus]       VARCHAR (20)  NOT NULL,
     [DateOfUpdate]      SMALLDATETIME NOT NULL,
     [UpdatedByEmployee] INT           NOT NULL,
-    PRIMARY KEY CLUSTERED ([OrderID] ASC, [OrderStatus] ASC),
+    PRIMARY KEY NONCLUSTERED ([OrderID] ASC, [OrderStatus] ASC),
     FOREIGN KEY ([UpdatedByEmployee]) REFERENCES [dbo].[Employee] ([EmployeeID])
 );
+
+
+
+
+GO
+CREATE CLUSTERED COLUMNSTORE INDEX [soccindex]
+    ON [dbo].[ServiceOrder];
 
