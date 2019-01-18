@@ -1,4 +1,4 @@
-﻿CREATE   PROCEDURE DenormCarModel
+﻿CREATE   PROCEDURE [dbo].[DenormCarModel]
 AS
 BEGIN --begin proc
 
