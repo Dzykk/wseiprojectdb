@@ -63,6 +63,7 @@
     <Folder Include="rapAn\" />
     <Folder Include="rapAn\Views\" />
     <Folder Include="Security\" />
+    <Folder Include="rapAn\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\ServiceOrder.sql" />
@@ -77,5 +78,6 @@
     <Build Include="dbo\Stored Procedures\DenormClient.sql" />
     <Build Include="rapAn\Views\Raport1.sql" />
     <Build Include="Security\rapAn.sql" />
+    <Build Include="rapAn\Stored Procedures\Raport2.sql" />
   </ItemGroup>
 </Project>

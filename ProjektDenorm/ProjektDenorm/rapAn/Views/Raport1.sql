@@ -2,6 +2,7 @@
 AS
 (
 SELECT
+RANK() OVER (PARTITION BY cm.ManufacturerName ORDER BY SUM(od.FinalPrice) DESC) AS [Rank],
 cm.ManufacturerName,
 cm.ModelName,
 COUNT(od.OrderID) AS CarsSold,
