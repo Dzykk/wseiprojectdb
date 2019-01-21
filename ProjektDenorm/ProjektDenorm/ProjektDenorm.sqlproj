@@ -76,10 +76,10 @@
     <Build Include="dbo\Stored Procedures\DenormCarModel.sql" />
     <Build Include="dbo\Stored Procedures\DenormOrder.sql" />
     <Build Include="dbo\Stored Procedures\DenormClient.sql" />
-    <Build Include="rapAn\Views\Raport1.sql" />
     <Build Include="Security\rapAn.sql" />
-    <Build Include="rapAn\Stored Procedures\Raport2.sql" />
-    <Build Include="rapAn\Stored Procedures\Raport3.sql" />
-    <Build Include="rapAn\Views\Raport4.sql" />
+    <Build Include="rapAn\Views\Report4.sql" />
+    <Build Include="rapAn\Views\Report1.sql" />
+    <Build Include="rapAn\Stored Procedures\Report3.sql" />
+    <Build Include="rapAn\Stored Procedures\Report2.sql" />
   </ItemGroup>
 </Project>

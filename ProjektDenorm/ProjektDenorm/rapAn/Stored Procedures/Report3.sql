@@ -1,6 +1,7 @@
-﻿
-CREATE   PROCEDURE rapAn.Raport3 @yr int
+﻿CREATE PROCEDURE rapAn.Report3 @yr int
 AS
+-- Procedura tworząca tabelę przestawną wyświetlającą producentów samochodów wraz z nazwami modeli, z kolumnami odpowiadającymi nazwom miesięcy, wyświetlająca sumę zarobionych pieniędzy w każdym miesiącu przez dany model konkretnej marki. 
+--Wykorzystuje tymczasową tabelę zawierającą nazwę miesięcy w celu posegregowania nazw kolumn, która na koniec procedury jest usuwana.
 CREATE TABLE #Temp
 (
 [MonthName] varchar(15),
