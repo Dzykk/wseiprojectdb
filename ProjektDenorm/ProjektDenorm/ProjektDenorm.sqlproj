@@ -79,5 +79,6 @@
     <Build Include="rapAn\Views\Raport1.sql" />
     <Build Include="Security\rapAn.sql" />
     <Build Include="rapAn\Stored Procedures\Raport2.sql" />
+    <Build Include="rapAn\Stored Procedures\Raport3.sql" />
   </ItemGroup>
 </Project>
