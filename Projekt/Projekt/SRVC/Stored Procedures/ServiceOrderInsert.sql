@@ -1,4 +1,4 @@
-﻿CREATE   PROCEDURE SRVC.ServiceOrderInsert @NumberOfOrders int
+﻿CREATE    PROCEDURE SRVC.ServiceOrderInsert @NumberOfOrders int
 AS
 BEGIN --begin proc
 DECLARE @ordernumber int
@@ -20,9 +20,23 @@ SRVC.ServiceType
 WHERE tb.rownum = 1 + (SELECT CAST(RAND() * COUNT(*) AS int) FROM SRVC.ServiceType )
 END
 
-INSERT INTO SRVC.[Order] (ServiceTypeID)
+
+BEGIN
+DECLARE @clientid int
+SELECT @clientid = ClientID
+FROM
+(SELECT 
+ROW_NUMBER() OVER (Order BY ClientID) AS rownum,
+ClientID
+FROM
+dbo.Client
+) AS tb
+WHERE tb.rownum = 1 + (SELECT CAST(RAND() * COUNT(*) AS int) FROM dbo.Client )
+END
+
+INSERT INTO SRVC.[Order] (ServiceTypeID, ClientID)
 VALUES
-(@serviceid)
+(@serviceid, @clientid)
 
 SET @ordernumber += 1
 IF @ordernumber > @NumberOfOrders
