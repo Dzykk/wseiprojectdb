@@ -13,4 +13,6 @@ dbo.Employee as em (READUNCOMMITTED) INNER JOIN
 HR.EmployeeJob AS ej (READUNCOMMITTED) ON em.EmployeeID = ej.EmployeeID INNER JOIN
 HR.Job AS jo (READUNCOMMITTED) ON ej.JobID = jo.JobID INNER JOIN
 HR.Payment as pa (READUNCOMMITTED) ON em.EmployeeID = pa.EmployeeID AND pa.[Type] = 'Bonus'
+WHERE
+em.EmployeeID <> -1
 ;

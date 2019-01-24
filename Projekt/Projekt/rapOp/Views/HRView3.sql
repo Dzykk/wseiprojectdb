@@ -10,5 +10,6 @@ HR.Job AS jo (READUNCOMMITTED) INNER JOIN
 HR.EmployeeJob AS ej (READUNCOMMITTED) ON jo.JobID = ej.JobID INNER JOIN
 dbo.Employee AS em (READUNCOMMITTED) ON ej.EmployeeID = em.EmployeeID INNER JOIN
 HR.Wage AS wa (READUNCOMMITTED) ON em.EmployeeID = wa.EmployeeID AND ej.DateFrom = wa.DateFrom AND ej.DateTo = wa.DateTo
+WHERE jo.JobID <> -1
 GROUP BY
 jo.[Name]

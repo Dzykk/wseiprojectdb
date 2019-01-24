@@ -12,6 +12,6 @@ SRVC.ServiceType AS st (READUNCOMMITTED) LEFT JOIN
 SRVC.OrderHistory AS oh (READUNCOMMITTED) ON od.OrderID = oh.OrderID AND oh.[StatusID] = 4)
 ON st.ServiceTypeID = od.ServiceTypeID
 WHERE
-YEAR(oh.DateOfUpdate) = YEAR(GETDATE())
+YEAR(oh.DateOfUpdate) = YEAR(GETDATE()) AND st.ServiceTypeID <> -1
 GROUP BY 
 st.[Name];

@@ -11,6 +11,6 @@ HR.EmployeeTeam AS et (READUNCOMMITTED) ON te.TeamID = et.TeamID INNER JOIN
 dbo.Employee as em (READUNCOMMITTED) ON et.EmployeeID = em.EmployeeID INNER JOIN
 dbo.[Order] AS od (READUNCOMMITTED) ON em.EmployeeID = od.EmployeeID
 WHERE
-od.Completed = 1 AND od.Delivered = 1
+od.Completed = 1 AND od.Delivered = 1 AND te.TeamID <> -1
 GROUP BY
 te.[Name];

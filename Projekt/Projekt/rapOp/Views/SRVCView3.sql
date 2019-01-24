@@ -1,8 +1,4 @@
-﻿
-
-
-
-CREATE VIEW [rapOp].[SRVCView3] AS
+﻿CREATE VIEW [rapOp].[SRVCView3] AS
 --Lista pracowników, którzy nie zajmowali się obsługą żadnego z zamówień w serwisie wraz z ich posadą i zespołem.
 
 SELECT
@@ -25,3 +21,4 @@ FROM
 dbo.Employee AS em (READUNCOMMITTED) INNER JOIN
 SRVC.OrderHistory AS oh (READUNCOMMITTED) ON em.EmployeeID = oh.UpdatedByEmployee
 )
+AND em.EmployeeID <> -1
