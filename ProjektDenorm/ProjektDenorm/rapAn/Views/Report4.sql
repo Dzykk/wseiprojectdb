@@ -1,7 +1,7 @@
 ﻿CREATE VIEW rapAn.Report4
 AS
 --Lista producentów samochodów wraz z ilością sprzedanych samochodów w danym miesiącu, posortowana według lat i miesięcy i uzupełniona o ilość sprzedanych samochodów w ubiegłym oraz następnym miesiącu w kontekście obecnego oraz rosnącą wartość sprzedanych samochodów z każdym miesiącem ograniczoną do jednego roku.
-WITH cte (ManufacturerName, [Month], MonthNo, [Year], CarsSoldPreviousMonth, CarsSold, CarsSoldFollowingMonth)
+WITH cte 
 AS
 (
 SELECT 
