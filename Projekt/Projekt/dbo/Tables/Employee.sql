@@ -6,7 +6,7 @@
     [Email]       VARCHAR (50)  NULL,
     [PhoneNumber] VARCHAR (20)  NULL,
     [PESEL]       CHAR (11)     NOT NULL,
-    [HireDate]    SMALLDATETIME NOT NULL,
+    [HireDate]    SMALLDATETIME NULL,
     PRIMARY KEY CLUSTERED ([EmployeeID] ASC),
     CHECK ([Gender] like '%male'),
     UNIQUE NONCLUSTERED ([Email] ASC),

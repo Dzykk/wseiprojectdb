@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [HR].[EmployeeTeam] (
-    [EmployeeID] INT NOT NULL,
-    [TeamID]     INT NOT NULL,
+    [EmployeeID] INT NOT NULL DEFAULT -1,
+    [TeamID]     INT NOT NULL DEFAULT -1,
     PRIMARY KEY CLUSTERED ([EmployeeID] ASC, [TeamID] ASC),
-    FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employee] ([EmployeeID]),
-    FOREIGN KEY ([TeamID]) REFERENCES [HR].[Team] ([TeamID])
+    FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employee] ([EmployeeID]) ON DELETE SET DEFAULT ON UPDATE SET DEFAULT,
+    FOREIGN KEY ([TeamID]) REFERENCES [HR].[Team] ([TeamID]) ON DELETE SET DEFAULT ON UPDATE SET DEFAULT
 );
 

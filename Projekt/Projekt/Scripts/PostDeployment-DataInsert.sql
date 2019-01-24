@@ -5,9 +5,23 @@ VALUES
 ('Manager'), ('Vendor'), ('Specialist'), ('Mechanic'), ('Customer Service');
 GO
 
+SET IDENTITY_INSERT HR.Job ON
+INSERT INTO HR.Job ([JobID] ,[Name])
+VALUES
+(-1, 'Technical')
+SET IDENTITY_INSERT HR.Job OFF;
+GO
+
 INSERT INTO HR.Team ([Name])
 VALUES
 ('Management'), ('Salesroom'), ('Workshop'), ('Support');
+GO
+
+SET IDENTITY_INSERT HR.Team ON
+INSERT INTO HR.Team ([TeamID] ,[Name])
+VALUES
+(-1, 'Technical')
+SET IDENTITY_INSERT HR.Team OFF;
 GO
 
 INSERT INTO [dbo].[Employee] ([Name], [Surname], [Gender], [Email], [PhoneNumber], [PESEL], [HireDate])
@@ -24,6 +38,13 @@ VALUES
 ('Prince', 'Paff', 'Male', 'ppaff2@google.it', '349-922-5041', '70178158659', '20170212'),
 ('Bartolomeo', 'Cornil', 'Male', 'bcornil3@cam.ac.uk', '374-733-1240', '96443709812', '20170902'),
 ('Fanchette', 'Leppard', 'Female', 'fleppard4@vistaprint.com', '630-864-0545', '52711510068', '20161102');
+GO
+
+SET IDENTITY_INSERT [dbo].[Employee] ON
+INSERT INTO [dbo].[Employee] ([EmployeeID], [Surname], [PESEL])
+VALUES
+(-1, 'Technical', 'Employee', 00000000000)
+SET IDENTITY_INSERT [dbo].[Employee] OFF;
 GO
 
 INSERT INTO HR.EmployeeJob (EmployeeID, JobID, DateFrom, DateTo)
@@ -106,6 +127,13 @@ VALUES
 ('Closed');
 GO
 
+SET IDENTITY_INSERT SRVC.OrderStatus ON
+INSERT INTO SRVC.OrderStatus (OrderStatusID, [Name])
+VALUES
+(-1, 'Technical')
+SET IDENTITY_INSERT SRVC.OrderStatus OFF;
+GO
+
 INSERT INTO SRVC.ServiceType ([Name], [Price])
 VALUES
 ('Maintenance Service', 150),
@@ -115,6 +143,12 @@ VALUES
 ('Tyres Replacement', 100);
 GO
 
+SET IDENTITY_INSERT SRVC.ServiceType ON
+INSERT INTO SRVC.ServiceType (ServiceTypeID, [Name])
+VALUES
+(-1, 'Technical')
+SET IDENTITY_INSERT SRVC.ServiceType OFF;
+GO
 
 INSERT INTO dbo.[Client] ([Name], [Surname], [Gender], [Email], [PhoneNumber], [IdentityCardNumber], [Address], [ZipCode], [City]) 
 VALUES 
@@ -140,6 +174,13 @@ VALUES
 ('Sarine', 'Cromett', 'Female', 'scromettj@blogs.com', '734-120-7167', '111167420', '8798 Pearson Street', '55-368', 'Kochenëvo');
 GO
 
+SET IDENTITY_INSERT [dbo].[Client] ON
+INSERT INTO [dbo].[Client] (ClientID, [Name], [Surname], [IdentityCardNumber])
+VALUES
+(-1, 'Technical', 'Client', 000000000)
+SET IDENTITY_INSERT [dbo].[Client] OFF;
+GO
+
 
 INSERT INTO [Manufacturer] ([Name], [Country], [Founded])
 VALUES ('Ford', 'Cambodia', '19000112'),
@@ -159,7 +200,15 @@ VALUES ('Ford', 'Cambodia', '19000112'),
 ('Buick', 'Indonesia', '19650113');
 GO
 
-INSERT INTO [Model] ([ManufacturerID],  [Name], [YearStart], [YearEnd]) 
+
+SET IDENTITY_INSERT [dbo].[Manufacturer] ON
+INSERT INTO [dbo].[Manufacturer] ([ManufacturerID], [Name])
+VALUES
+(-1, 'Technical')
+SET IDENTITY_INSERT [dbo].[Manufacturer] OFF;
+GO
+
+INSERT INTO [Model] ([ManufacturerID], [Name], [YearStart], [YearEnd]) 
 VALUES 
 (2, 'Solara', '19450316', '19900919'),
  (3, '740', '19500902', '20090401'),
@@ -201,6 +250,14 @@ VALUES
  (13, 'Acclaim', '19310806', '19860319');
  GO
 
+SET IDENTITY_INSERT [dbo].[Model] ON
+INSERT INTO [dbo].[Model] ([ModelID], [ManufacturerID], [Name])
+VALUES
+(-1, -1, 'Technical')
+SET IDENTITY_INSERT [dbo].[Model] OFF;
+GO
+
+
 INSERT INTO [Price] ([ModelID], [Price], [DateFrom], [DateTo]) VALUES
 (1, 15563, '20180415', '20180515'),
 (2, 7569, '20180415', '20180515'),
@@ -240,4 +297,20 @@ INSERT INTO [Price] ([ModelID], [Price], [DateFrom], [DateTo]) VALUES
 (36, 8538, '20180415', '20180515'),
 (37, 11237, '20180415', '20180515'),
 (38, 17178, '20180415', '20180515');
+GO
+
+
+SET IDENTITY_INSERT [dbo].[Order] ON
+INSERT INTO [dbo].[Order] (OrderID, ClientID, EmployeeID, Completed, Delivered)
+VALUES
+(-1, -1, -1, 0, 0)
+SET IDENTITY_INSERT [dbo].[Order] OFF;
+GO
+
+
+SET IDENTITY_INSERT SRVC.[Order] ON
+INSERT INTO SRVC.[Order] (OrderID, ServiceTypeID, ClientID)
+VALUES
+(-1, -1, -1)
+SET IDENTITY_INSERT SRVC.[Order] OFF;
 GO
